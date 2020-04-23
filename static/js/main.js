@@ -11,10 +11,10 @@ $(function() {
         });
     }
 
-    var px_change = 1;
+    var pxChange = 1;
     $(window).scroll(function(e) {
         var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        if (scrollTop > px_change) {
+        if (scrollTop > pxChange) {
             $('#back_to_top').fadeIn(100);
         } else {
             $('#back_to_top').fadeOut(100);

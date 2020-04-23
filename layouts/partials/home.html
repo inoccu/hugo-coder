@@ -29,5 +29,11 @@
       {{ end }}
     </ul>
     {{ end }}
+
+    <div class="latest-tweets">
+      <a class="twitter-timeline" data-width="300" data-height="200" data-chrome="noheader nofooter noborders noscrollbar transparent" data-tweet-limit="1" href="https://twitter.com/{{ .Site.Params.twitter }}">Tweets by {{ .Site.Params.twitter }}</a>
+      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>  
+    </div>
+
   </div>
 </section>
