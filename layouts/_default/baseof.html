@@ -96,6 +96,9 @@
     {{ $csClass = "colorscheme-auto" }}
   {{ end }}
   <body class="{{ $csClass }}{{ if .Site.Params.rtl }} rtl{{ end }}">
+
+    <div id="back_to_top"><a href="#"></a></div>
+
     <main class="wrapper">
       {{ partial "header.html" . }}
 

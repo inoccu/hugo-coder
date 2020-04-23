@@ -1,6 +1,10 @@
 .navigation {
   height: 6.0rem;
   width: 100%;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  background-color: $bg-color;
   a, span {
     display: inline;
     font-size: 1.6rem;
