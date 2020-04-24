@@ -16,6 +16,12 @@
   </section>
   <section class="centered home-right">
     <div class="about">
+      {{ with .Site.Params.gcs }}
+      <div>
+        <script async src="https://cse.google.com/cse.js?cx={{ . }}"></script>
+        <div id="gcs" class="gcse-searchbox-only"></div>  
+      </div>
+      {{ end }}
       <div class="latest-tweets">
         <a class="twitter-timeline" data-height="200" data-chrome="noheader nofooter noborders noscrollbar transparent" data-tweet-limit="3" href="https://twitter.com/{{ .Site.Params.twitter }}">Tweets by {{ .Site.Params.twitter }}</a>
         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>  
