@@ -1,46 +1,42 @@
-<section class="container centered">
-  <div class="grid">
-    <div class="row">
-      <div class="col-7">
-        <div class="about">
-          {{ if and (isset .Site.Params "avatarurl") (not (isset .Site.Params "gravatar")) }}
-            {{ with .Site.Params.avatarurl }}
-              <div class="avatar"><img src="{{ . | relURL }}" alt="avatar"></div>
-            {{ end }}
+<section class="container contered home-grid">
+  <section class="centered home-left">
+    <div class="about">
+      {{ if and (isset .Site.Params "avatarurl") (not (isset .Site.Params "gravatar")) }}
+        {{ with .Site.Params.avatarurl }}
+          <div class="avatar"><img src="{{ . | relURL }}" alt="avatar"></div>
+        {{ end }}
+      {{ end }}
+      {{ with .Site.Params.gravatar }}
+        <div class="avatar"><img src="https://www.gravatar.com/avatar/{{md5 .}}?s=240&d=mp" alt="gravatar"></div>
+      {{ end }}
+      <h1>{{ .Site.Params.author }}</h1>
+
+      <h2>I'm <span class="typed" data-typed-items="{{ .Site.Params.typed }}"></span></h2>
+    </div>    
+  </section>
+  <section class="centered home-right">
+    <div class="about">
+      <div class="latest-tweets">
+        <a class="twitter-timeline" data-height="200" data-chrome="noheader nofooter noborders noscrollbar transparent" data-tweet-limit="3" href="https://twitter.com/{{ .Site.Params.twitter }}">Tweets by {{ .Site.Params.twitter }}</a>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>  
+      </div>  
+      {{ with .Site.Params.social }}
+      <ul>
+        {{ range sort . "weight" }}
+          {{ if .icon }}
+            <li>
+              <a href="{{ .url }}" aria-label="{{ .name }}" {{ if .rel }}rel="{{ .rel }}"{{ end }} {{ if .target }}target="{{ .target }}"{{ end }} {{ if .type }}type="{{ .type }}"{{ end }}>
+                <i class="{{ .icon }}" aria-hidden="true"></i>
+              </a>
+            </li>
+          {{ else }}
+            <li>
+              <a href="{{ .url }}" aria-label="{{ .name }}" {{ if .rel }}rel="{{ .rel }}"{{ end }} {{ if .target }}target="{{ .target }}"{{ end }}>{{ .name }}</a>
+            </li>
           {{ end }}
-          {{ with .Site.Params.gravatar }}
-            <div class="avatar"><img src="https://www.gravatar.com/avatar/{{md5 .}}?s=240&d=mp" alt="gravatar"></div>
-          {{ end }}
-          <h1>{{ .Site.Params.author }}</h1>
-      
-          <h2>I'm <span class="typed" data-typed-items="{{ .Site.Params.typed }}"></span></h2>
-        </div>    
-      </div>
-      <div class="col-5">
-        <div class="about">
-          <div class="latest-tweets">
-            <a class="twitter-timeline" data-height="200" data-chrome="noheader nofooter noborders noscrollbar transparent" data-tweet-limit="3" href="https://twitter.com/{{ .Site.Params.twitter }}">Tweets by {{ .Site.Params.twitter }}</a>
-            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>  
-          </div>  
-          {{ with .Site.Params.social }}
-          <ul>
-            {{ range sort . "weight" }}
-              {{ if .icon }}
-                <li>
-                  <a href="{{ .url }}" aria-label="{{ .name }}" {{ if .rel }}rel="{{ .rel }}"{{ end }} {{ if .target }}target="{{ .target }}"{{ end }} {{ if .type }}type="{{ .type }}"{{ end }}>
-                    <i class="{{ .icon }}" aria-hidden="true"></i>
-                  </a>
-                </li>
-              {{ else }}
-                <li>
-                  <a href="{{ .url }}" aria-label="{{ .name }}" {{ if .rel }}rel="{{ .rel }}"{{ end }} {{ if .target }}target="{{ .target }}"{{ end }}>{{ .name }}</a>
-                </li>
-              {{ end }}
-            {{ end }}
-          </ul>
-          {{ end }}  
-        </div>
-      </div>
-    </div>  
-  </div>
+        {{ end }}
+      </ul>
+      {{ end }}  
+    </div>
+  </section>
 </section>

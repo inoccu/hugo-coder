@@ -22,6 +22,18 @@
     }
 }
 
+.home-grid {
+    display: flex;
+
+    .home-left {
+        flex-basis: 60%;
+    }
+    
+    .home-right {
+        flex-basis: 40%;
+    }
+}
+
 .latest-tweets {
     margin: 45px auto 20px auto;
     height: 200px;
