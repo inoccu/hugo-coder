@@ -58,20 +58,23 @@
     box-shadow: none;
 }
 
-@media screen and (max-width: 899px) {
+@media only screen and (max-width: 768px) {
     .home-right {
         margin-top: 2em;
     }
 }
 
-@media screen and (min-width: 900px) {
+@media only screen and (min-width: 769px) {
     .home-grid {
         display: flex;
-    
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .home-grid {
         .home-left {
             flex-basis: 60%;
         }
-        
         .home-right {
             flex-basis: 40%;
         }
