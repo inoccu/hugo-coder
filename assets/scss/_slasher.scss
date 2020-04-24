@@ -22,14 +22,20 @@
     }
 }
 
-#gcs {
+#gsc {
     width: 300px;
     background-color: transparent !important;
     border: none !important;
-    
-    td, th {
-        border: none;
-        padding: inherit;
+
+    td.gsc-input {
+        padding: 0 12px 0 0;
+    }
+    td.gsib_a {
+        padding-left: 4px;
+    }
+    th, td {
+        border: 0;
+        padding: 0;
     }
 }
 
