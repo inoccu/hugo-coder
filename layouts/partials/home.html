@@ -23,7 +23,7 @@
       </div>
       {{ end }}
       <div class="latest-tweets">
-        <a class="twitter-timeline" data-height="200" data-chrome="noheader nofooter noborders noscrollbar transparent" data-tweet-limit="3" href="https://twitter.com/{{ .Site.Params.twitter }}">Tweets by {{ .Site.Params.twitter }}</a>
+        <a class="twitter-timeline" data-height="200" data-chrome="noheader nofooter noborders noscrollbar transparent" data-tweet-limit="10" href="https://twitter.com/{{ .Site.Params.twitter }}">Tweets by {{ .Site.Params.twitter }}</a>
         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>  
       </div>  
       {{ with .Site.Params.social }}
