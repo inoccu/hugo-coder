@@ -8,6 +8,8 @@
     {{- .Title -}}
   </h1>
   {{ .Content }}
+  {{ if .Params.noshowpages }}
+  {{ else }}
   <ul>
     {{ range .Paginator.Pages }}
     <li>
@@ -17,4 +19,5 @@
     {{ end }}
   </ul>
   {{ partial "pagination.html" . }}
+  {{ end }}
 </section>
