@@ -1,0 +1,4 @@
+{{- if or (.Params.mermaid) (.Site.Params.mermaid) -}}
+  <script src="/js/mermaid.js"></script>
+  <script>mermaid.init(undefined, ".language-mermaid");</script>
+{{- end -}}
