@@ -15,7 +15,7 @@
     {{ if .Permalink }}
       <base href="{{ .Permalink }}">
     {{ end }}
-    <title>{{ .Title }} · {{ .Site.Title }}</title>
+    <title>{{ .Title }} - {{ .Site.Title }}</title>
 
     {{ if .Permalink }}
       <link rel="canonical" href="{{ .Permalink }}">
@@ -36,15 +36,25 @@
     {{ end -}}
 
     {{ hugo.Generator }}
+
+    <style>
+      .reveal td {
+        vertical-align: top;
+      }
+      .reveal h2 {
+        font-size: 1.8em;
+        border-bottom: solid 1px;
+      }
+    </style>
   </head>
 
   <body>
 
     <div class="reveal">
         <div class="slides">
-            <section data-markdown="" data-separator="^\n---$" data-separator-vertical="^\n>>>$">
+            <section data-markdown="" data-separator="<hr>" data-separator-vertical="^\n>>>$">
                 <script type="text/template">
-                    {{ .RawContent }}
+                    {{ .Content }}
                 </script>
             </section>
         </div>
@@ -65,19 +75,31 @@
     <script src="/reveal.js/plugin/markdown/markdown.js"></script>
     <script src="/reveal.js/plugin/highlight/highlight.js"></script>
     <script>
-        // Also available as an ES module, see:
-        // https://revealjs.com/initialization/
-        Reveal.initialize({
-        controls: true,
-        progress: true,
-        center: true,
-        hash: true,
-    
-        // Learn about plugins: https://revealjs.com/plugins/
-        plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
-        });
+      // Also available as an ES module, see:
+      // https://revealjs.com/initialization/
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      center: true,
+      hash: true,
+  
+      // Learn about plugins: https://revealjs.com/plugins/
+      plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+      });
     </script>
-    
+
+    <script src="/js/mermaid.js"></script>
+    <script>
+      Reveal.on( 'ready', event => {
+        mermaid.init(undefined, ".language-mermaid");
+      });
+      Reveal.on( 'slidetransitionend', event => {
+        setTimeout(function() {
+          mermaid.init(undefined, ".language-mermaid");
+        }, 1000)
+      });
+    </script>
+
   </body>
 
 </html>
