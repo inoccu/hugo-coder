@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
+    {{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
+    {{ with .Site.Params.keywords }}<meta name="keywords" content="{{ . }}">{{ end }}
+
+    {{ template "_internal/twitter_cards.html" . }}
+    {{ template "_internal/opengraph.html" . }}
+
+    {{ if .Permalink }}
+      <base href="{{ .Permalink }}">
+    {{ end }}
+    <title>{{ .Title }} · {{ .Site.Title }}</title>
+
+    {{ if .Permalink }}
+      <link rel="canonical" href="{{ .Permalink }}">
+    {{ end }}
+
+    <link rel="stylesheet" href="/reveal.js/dist/reset.css">
+		<link rel="stylesheet" href="/reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="/reveal.js/dist/theme/simple.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="/reveal.js/plugin/highlight/monokai.css" id="highlight-theme">
+
+    <link rel="icon" type="image/png" href="{{ .Site.Params.favicon_32 | default "/images/favicon-32x32.png" | absURL }}" sizes="32x32">
+    <link rel="icon" type="image/png" href="{{ .Site.Params.favicon_16 | default "/images/favicon-16x16.png" | absURL }}" sizes="16x16">
+
+    {{ range .AlternativeOutputFormats -}}
+      {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+    {{ end -}}
+
+    {{ hugo.Generator }}
+  </head>
+
+  <body>
+
+    <div class="reveal">
+        <div class="slides">
+            <section data-markdown="" data-separator="^\n---$" data-separator-vertical="^\n>>>$">
+                <script type="text/template">
+                    {{ .RawContent }}
+                </script>
+            </section>
+        </div>
+    </div>
+
+    {{ if not .Site.IsServer }}
+      {{ template "_internal/google_analytics.html" . }}
+    {{ end }}
+
+    {{ if and .Site.Params.fathomAnalytics .Site.Params.fathomAnalytics.siteID }}
+      {{- partial "analytics/fathom" . -}}
+    {{ end }}
+
+    <script src="/reveal.js/dist/reveal.js"></script>
+    <script src="/reveal.js/plugin/zoom/zoom.js"></script>
+    <script src="/reveal.js/plugin/notes/notes.js"></script>
+    <script src="/reveal.js/plugin/search/search.js"></script>
+    <script src="/reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="/reveal.js/plugin/highlight/highlight.js"></script>
+    <script>
+        // Also available as an ES module, see:
+        // https://revealjs.com/initialization/
+        Reveal.initialize({
+        controls: true,
+        progress: true,
+        center: true,
+        hash: true,
+    
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+        });
+    </script>
+    
+  </body>
+
+</html>
