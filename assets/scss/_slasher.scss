@@ -1,86 +1,87 @@
 #back_to_top {
-    display: none;
+  display: none;
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  right: 1em;
+  bottom: 1em;
+  opacity: 0.7;
+
+  a {
     width: 50px;
     height: 50px;
-    position: fixed;
-    right: 1em;
-    bottom: 1em;
-    opacity: 0.7;
+    text-decoration: none;
+  }
 
-    a {
-        width: 50px;
-        height: 50px;
-        text-decoration: none;
-    }
-
-    a::before{
-        font-family: 'Font Awesome 5 Free';
-        font-weight: 900;
-        content: '\f0aa';
-        font-size: 50px;
-        color: red;
-    }
+  a::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f0aa";
+    font-size: 50px;
+    color: black;
+  }
 }
 
 #gcse {
-    td.gsib_a {
-        padding-left: 4px;
-    }
-    th, td {
-        border: 0;
-        padding: 0;
-    }
+  td.gsib_a {
+    padding-left: 4px;
+  }
+  th,
+  td {
+    border: 0;
+    padding: 0;
+  }
 }
 
 .latest-tweets {
-    margin: 30px auto 40px auto;
-    width: 300px;
-    height: 230px;
-    overflow-y: scroll;    
+  margin: 30px auto 40px auto;
+  width: 300px;
+  height: 230px;
+  overflow-y: scroll;
 }
 
-.latest-tweets::-webkit-scrollbar{
-    width: 10px;
+.latest-tweets::-webkit-scrollbar {
+  width: 10px;
 }
-.latest-tweets::-webkit-scrollbar-track{
-    background: #fff;
-    border: none;
-    border-radius: 10px;
-    box-shadow: inset 0 0 2px #777; 
+.latest-tweets::-webkit-scrollbar-track {
+  background: #fff;
+  border: none;
+  border-radius: 10px;
+  box-shadow: inset 0 0 2px #777;
 }
-.latest-tweets::-webkit-scrollbar-thumb{
-    background: #ccc;
-    border-radius: 10px;
-    box-shadow: none;
+.latest-tweets::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+  box-shadow: none;
 }
 
 @media only screen and (max-width: 768px) {
-    .home-right {
-        margin-top: 2em;
-    }
+  .home-right {
+    margin-top: 2em;
+  }
 }
 
 @media only screen and (min-width: 769px) {
-    .home-grid {
-        display: flex;
-    }
+  .home-grid {
+    display: flex;
+  }
 }
 
 @media only screen and (min-width: 992px) {
-    .home-grid {
-        .home-left {
-            flex-basis: 60%;
-        }
-        .home-right {
-            flex-basis: 40%;
-        }
+  .home-grid {
+    .home-left {
+      flex-basis: 60%;
     }
+    .home-right {
+      flex-basis: 40%;
+    }
+  }
 }
 
 .MathJax {
-    overflow-x: auto;
+  overflow-x: auto;
 }
 
 .language-mermaid {
-    width: 100%;
+  width: 100%;
 }
